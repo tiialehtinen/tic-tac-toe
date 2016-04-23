@@ -1,14 +1,22 @@
 body {
   margin: 0px;
-  background-color: #363633;
+  background-color: #66666;
 }
 
 table {
-  width: 300px;
-  height: 300px;
+  min-resolution: res;width: 300px;
+  min-height: 300px;
   padding: 25px;
+  color: black;
 }
 
 th, td  {
   border: 1px solid #e6e6e6;
+}
+
+td {
+  margin: 10px;
+  min-width: 99px !important ;
+  min-height: 49px !important ;
+  text-align: center;
 }
