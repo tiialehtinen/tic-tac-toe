@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>TicTacToe</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.4.1/jasmine.min.css" media="screen" title="no title" charset="utf-8">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.4.1/jasmine.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.4.1/jasmine-html.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.4.1/boot.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.4.1/jasmine.min.css" media="screen" title="no title" charset="utf-8"> -->
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.4.1/jasmine.min.js"></script> -->
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.4.1/jasmine-html.min.js"></script> -->
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.4.1/boot.min.js"></script> -->
 
     <script type="text/javascript" src="./js/main.js"></script>
     <link rel="stylesheet" href="./css/main.css" media="screen" title="no title" charset="utf-8">
@@ -14,26 +14,24 @@
   <body>
     <div>
       <table>
-        <tr>
-          <td onclick="setValue(this)"></td>
-          <td onclick="setValue(this)"></td>
-          <td onclick="setValue(this)"></td>
+        <tr data-value="1" data-axis="y">
+          <td data-value="1" data-axis="x" onclick="setValue(this, event)"></td>
+          <td data-value="2" data-axis="x" onclick="setValue(this, event)"></td>
+          <td data-value="3" data-axis="x" onclick="setValue(this, event)"></td>
         </tr>
-        <tr>
-          <td onclick="setValue(this)"></td>
-          <td onclick="setValue(this)"></td>
-          <td onclick="setValue(this)"></td>
+        <tr data-value="2" data-axis="y" >
+          <td data-value="1" data-axis="x" onclick="setValue(this, event)"></td>
+          <td data-value="2" data-axis="x" onclick="setValue(this, event)"></td>
+          <td data-value="3" data-axis="x" onclick="setValue(this, event)"></td>
         </tr>
-        <tr>
-          <td onclick="setValue(this)"></td>
-          <td onclick="setValue(this)"></td>
-          <td onclick="setValue(this)"></td>
+        <tr data-value="3" data-axis="y" >
+          <td data-value="1" data-axis="x" onclick="setValue(this, event)"></td>
+          <td data-value="2" data-axis="x" onclick="setValue(this, event)"></td>
+          <td data-value="3" data-axis="x" onclick="setValue(this, event)"></td>
         </tr>
       </table>
     </div>
-    <script type="text/javascript" src="./js/spec.js">
-
-    </script>
+    <!-- <script type="text/javascript" src="./js/spec.js"></script> -->
   </body>
 
 </html>
