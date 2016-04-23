@@ -29,6 +29,9 @@ function setValue(tdEl) {
 
   console.log('Setting currentPlayer from nextPlayer: ');
   setCurrentPlayer(_nextCurrentPlayer);
+  
+  // this disables onclick event for a field that has a value
+  tdEl.style.pointerEvents = 'none'
 }
 
 function getNextPlayerFromCurrentPlayer() {
