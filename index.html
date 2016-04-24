@@ -8,26 +8,27 @@
     <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.4.1/jasmine-html.min.js"></script> -->
     <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.4.1/boot.min.js"></script> -->
 
+    <script type="text/javascript" src="./js/utils.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
     <link rel="stylesheet" href="./css/main.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
     <div>
       <table>
-        <tr data-value="1" data-axis="y">
-          <td data-value="1" data-axis="x" onclick="setValue(this, event)"></td>
-          <td data-value="2" data-axis="x" onclick="setValue(this, event)"></td>
-          <td data-value="3" data-axis="x" onclick="setValue(this, event)"></td>
+        <tr>
+          <td data-value="0" onclick="setValue(this, event)"></td>
+          <td data-value="1" onclick="setValue(this, event)"></td>
+          <td data-value="2" onclick="setValue(this, event)"></td>
         </tr>
-        <tr data-value="2" data-axis="y" >
-          <td data-value="1" data-axis="x" onclick="setValue(this, event)"></td>
-          <td data-value="2" data-axis="x" onclick="setValue(this, event)"></td>
-          <td data-value="3" data-axis="x" onclick="setValue(this, event)"></td>
+        <tr>
+          <td data-value="3" onclick="setValue(this, event)"></td>
+          <td data-value="4" onclick="setValue(this, event)"></td>
+          <td data-value="5" onclick="setValue(this, event)"></td>
         </tr>
-        <tr data-value="3" data-axis="y" >
-          <td data-value="1" data-axis="x" onclick="setValue(this, event)"></td>
-          <td data-value="2" data-axis="x" onclick="setValue(this, event)"></td>
-          <td data-value="3" data-axis="x" onclick="setValue(this, event)"></td>
+        <tr>
+          <td data-value="6" onclick="setValue(this, event)"></td>
+          <td data-value="7" onclick="setValue(this, event)"></td>
+          <td data-value="8" onclick="setValue(this, event)"></td>
         </tr>
       </table>
     </div>
