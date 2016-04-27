@@ -1,22 +1,17 @@
-// document.addEventListener("DOMContentLoaded", function() {
-    // code...
 
-    /////////////////////////
-    // Our init of the app //
-    /////////////////////////
+   var xPlayer = {
+      name: "X",
+      turns: 0,
+      positions: []
+    }
 
-    // Our X Player
-    var xPlayer = 'X';
-    var xPlayerTurns = 0;
-    var xPlayerPositions = [];
+    var oPlayer = {
+      name: "O",
+      turns: 0,
+      positions: []
+    }
 
-    // Our O Player
-    var oPlayer = 'O';
-    var oPlayerTurns = 0;
-    var oPlayerPositions = [];
-
-    // Who is our first player
-    var currentPlayer = oPlayer;
+    var currentPlayer = oPlayer.name;
 
     // Minimum of turns for a winner
     var minTurnsForWinner = 5; // this equals the sum of oPlayerTurns + xPlayerTurns
@@ -62,21 +57,19 @@
     }
 
     function setPlayerTurn(player) {
-        if (player === xPlayer) {
-            xPlayerTurns += 1;
+        if (player === xPlayer.name) {
+            xPlayer.turns += 1;
         } else {
-            oPlayerTurns += 1;
+            oPlayer.turns += 1;
         }
     }
 
     function setPlayerPosition(position) {
       position = parseInt(position,10);
-      if (currentPlayer === xPlayer) {
-            xPlayerPositions.push(position);
-            xPlayerPositions.sort();
+      if (currentPlayer === xPlayer.name) {
+            xPlayer.positions.push(position);
         } else {
-            oPlayerPositions.push(position);
-            oPlayerPositions.sort();
+            oPlayer.positions.push(position);
         }
     }
 
@@ -85,7 +78,7 @@
     // or false if less than 5 turns
     // default output is FALSE
     function shouldWeCheckForWinner() {
-        var shouldCheck = xPlayerTurns + oPlayerTurns;
+        var shouldCheck = xPlayer.turns + oPlayer.turns;
         if (shouldCheck >= minTurnsForWinner) {
             return true;
         }
@@ -95,10 +88,10 @@
     function isPlayerWinner() {
       var positions = '';
       var winner = false;
-      if (currentPlayer === xPlayer) {
-            positions = xPlayerPositions;
+      if (currentPlayer === xPlayer.name) {
+            positions = xPlayer.positions;
         } else {
-            positions = oPlayerPositions;
+            positions = oPlayer.positions;
         }
       winCombinations.map(function (combo) {
 
@@ -106,7 +99,7 @@
         if( diff.length === 0  ){
           winner = true;
         }
-        
+
       });
       return winner;
     }
@@ -114,10 +107,10 @@
     function getNextPlayerFromCurrentPlayer() {
         var _nextCurrentPlayer = '';
 
-        if (currentPlayer === xPlayer) {
-            _nextCurrentPlayer = oPlayer;
-        } else if (currentPlayer === oPlayer) {
-            _nextCurrentPlayer = xPlayer;
+        if (currentPlayer === xPlayer.name) {
+            _nextCurrentPlayer = oPlayer.name;
+        } else if (currentPlayer === oPlayer.name) {
+            _nextCurrentPlayer = xPlayer.name;
         }
         return _nextCurrentPlayer;
     }
