@@ -26,7 +26,17 @@ var winCombinations = [
     [0, 4, 8],
     [2, 4, 6]
 ];
+var tdEl = {
+  innerText:"",
+}
 
+var event = {
+  target:{
+    dataset:{
+      value: 1
+    }
+  }
+}
 // tdEl=table data element
 function setValue(tdEl, event) {
 
@@ -121,4 +131,6 @@ function difference(a1, a2) {
     }
     return result;
 }
+
+setValue(tdEl,event);
 // });
