@@ -11,6 +11,7 @@ var oPlayer = {
 }
 // var currentPlayer is the whole object
 var currentPlayer = oPlayer;
+document.getElementById('currentPlayer').textContent = currentPlayer.name
 
 // Minimum of turns for a winner
 var minTurnsForWinner = 5; // this equals the sum of oPlayerTurns + xPlayerTurns
@@ -56,9 +57,12 @@ function setValue(tdEl, event) {
     // console.log('xPlayer', xPlayer, xPlayerTurns, xPlayerPositions);
     // console.log('oPlayer', oPlayer, oPlayerTurns, oPlayerPositions);
 
+    document.getElementById('currentPlayer').textContent = currentPlayer.name
+    
 
     // we are doing this last, player might WIN in this turn
     setCurrentPlayer(_nextCurrentPlayer);
+    document.getElementById('nextPlayer').textContent = currentPlayer.name
 
     // this disables onclick event for a field that has a value
     tdEl.style.pointerEvents = 'none';
@@ -120,5 +124,10 @@ function difference(a1, a2) {
         }
     }
     return result;
+}
+
+
+function resetGame(){
+location.reload(true);
 }
 // });
