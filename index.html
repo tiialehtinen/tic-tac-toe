@@ -19,9 +19,17 @@
 
 <body>
     <div class="container">
+        <div class="page-header">
+            <h1 align="center"> TIC TAC TOE </h1>
+        </div>
         <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <table class="tictactoe">
+          <div class="col-md-4">
+            <div class="jumbotron">
+              <h2>Winner is : <span id="winnerPlayer"></span></h2>
+            </div>
+          </div>
+            <div class="col-md-4">
+                <table class="table tictactoe">
                     <tr>
                         <td data-value="0" onclick="setValue(this, event)"></td>
                         <td data-value="1" onclick="setValue(this, event)"></td>
@@ -39,22 +47,14 @@
                     </tr>
                 </table>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
+            <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Scoreboard</h3>
+                        <h3 class="panel-title" align="center">Scoreboard</h3>
                     </div>
                     <div class="panel-body">
-                        <table class="table table-bordered">
+                        <table class="table">
                             <tbody>
-                                <tr>
-                                    <td><span id="currentPlayer"></span>Current Player</td>
-                                </tr>
-                                <tr>
-                                    <td><span id="nextPlayer"></span> Next Player</td>
-                                </tr>
                                 <tr>
                                     <td> O Player Wins </td>
                                 </tr>
@@ -63,21 +63,30 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
                 </div>
-            </div>
-            <div>
-              <button type="button" class="btn btn-info" onclick="resetGame()">Reset Game</button>
+
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-5">
 
-    </div>
+                <p><span id="currentPlayer"></span> Current Player</p>
+                <p><span id="nextPlayer"></span> Next Player</p>
+
+                <div>
+                    <button type="button" class="btn btn-info" onclick="resetGame()">Reset Game</button>
+                </div>
+            </div>
+
+        </div>
 
 
 
-    <!-- <script type="text/javascript" src="./js/spec.js"></script> -->
-    <script type="text/javascript" src="./js/main.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+        <!-- <script type="text/javascript" src="./js/spec.js"></script> -->
+        <script type="text/javascript" src="./js/main.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>

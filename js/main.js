@@ -1,13 +1,15 @@
 var xPlayer = {
     name: "X",
     turns: 0,
-    positions: []
+    positions: [],
+    class: "alert alert-danger"
 }
 
 var oPlayer = {
     name: "O",
     turns: 0,
-    positions: []
+    positions: [],
+    class: "alert alert-success"
 }
 // var currentPlayer is the whole object
 var currentPlayer = oPlayer;
@@ -45,10 +47,11 @@ function setValue(tdEl, event) {
 
     setPlayerPosition(currentPlayer, position);
     setPlayerTurn(currentPlayer);
+    tdEl.className = currentPlayer.class
 
     // we should check for winner or not
     if (shouldWeCheckForWinner() && isPlayerWinner(currentPlayer)) {
-        alert('You are the winner');
+        document.getElementById("winnerPlayer").innerText = currentPlayer.name
         winner = true;
     }
 
@@ -58,7 +61,8 @@ function setValue(tdEl, event) {
     // console.log('oPlayer', oPlayer, oPlayerTurns, oPlayerPositions);
 
     document.getElementById('currentPlayer').textContent = currentPlayer.name
-    
+
+
 
     // we are doing this last, player might WIN in this turn
     setCurrentPlayer(_nextCurrentPlayer);

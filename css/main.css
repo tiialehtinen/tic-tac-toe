@@ -8,9 +8,6 @@ table {
   min-height: 300px;
   padding: 25px;
   color: black;
-  vertical-align: middle;
-
-
 }
 
 th, td  {
@@ -25,6 +22,8 @@ td {
 }
 .tictactoe {
     background-color:#D2FAF7;
-    border:color:#DB1295;
-    padding-bottom: 60px;
+    border:1px solid #00000;
+}
+.alert-success {
+  color: #DB1295
 }
