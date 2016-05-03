@@ -4,7 +4,7 @@ var xPlayer = {
     positions: [],
     class: "alert alert-danger",
     wins: 0
-}
+};
 
 var oPlayer = {
     name: "O",
@@ -12,7 +12,7 @@ var oPlayer = {
     positions: [],
     class: "alert alert-success",
     wins: 0
-}
+};
 // var currentPlayer is the whole object
 var currentPlayer = oPlayer;
 
@@ -31,20 +31,20 @@ var winCombinations = [
     [2, 4, 6]
 ];
 
-var parentElem = document.getElementById(currentPlayer.name + "PlayerWins").parentElement.parentElement
-parentElem.className = 'jumbotron alert alert-info'
+var parentElem = document.getElementById(currentPlayer.name + "PlayerWins").parentElement.parentElement;
+parentElem.className = 'jumbotron alert alert-info';
 
 // Make sure that wins are restored from localStorages
 ls_xplayer_wins = localStorage.getItem(xPlayer.name);
 ls_oplayer_wins = localStorage.getItem(oPlayer.name);
 
-if( ls_xplayer_wins ) {
-  xPlayer.wins = parseInt(ls_xplayer_wins,10)
-  document.getElementById("XPlayerWins").innerText = xPlayer.wins
+if (ls_xplayer_wins) {
+    xPlayer.wins = parseInt(ls_xplayer_wins, 10);
+    document.getElementById("XPlayerWins").innerText = xPlayer.wins
 }
-if (ls_oplayer_wins){
-  oPlayer.wins = parseInt(ls_oplayer_wins,10)
-  document.getElementById("OPlayerWins").innerText = oPlayer.wins
+if (ls_oplayer_wins) {
+    oPlayer.wins = parseInt(ls_oplayer_wins, 10);
+    document.getElementById("OPlayerWins").innerText = oPlayer.wins
 }
 
 
@@ -65,14 +65,14 @@ function setValue(tdEl, event) {
 
     setPlayerPosition(currentPlayer, position);
     setPlayerTurn(currentPlayer);
-    tdEl.className = currentPlayer.class
+    tdEl.className = currentPlayer.class;
 
     // we should check for winner or not
     if (shouldWeCheckForWinner() && isPlayerWinner(currentPlayer)) {
-        document.getElementById("winnerPlayer").innerText = currentPlayer.name
+        document.getElementById("winnerPlayer").innerText = currentPlayer.name;
         winner = true;
-        currentPlayer.wins += 1
-        localStorage.setItem(currentPlayer.name, currentPlayer.wins)
+        currentPlayer.wins += 1;
+        localStorage.setItem(currentPlayer.name, currentPlayer.wins);
         document.getElementById(currentPlayer.name + "PlayerWins").innerText = currentPlayer.wins
 
     }
@@ -82,12 +82,10 @@ function setValue(tdEl, event) {
     // console.log('xPlayer', xPlayer, xPlayerTurns, xPlayerPositions);
     // console.log('oPlayer', oPlayer, oPlayerTurns, oPlayerPositions);
 
-    var parentElem = document.getElementById(currentPlayer.name + "PlayerWins").parentElement.parentElement
-    parentElem.className = 'jumbotron alert alert-info'
-    var parentElemNext = document.getElementById(_nextCurrentPlayer.name + "PlayerWins").parentElement.parentElement
-    parentElemNext.className = 'jumbotron alert alert-warning'
-
-
+    var parentElem = document.getElementById(currentPlayer.name + "PlayerWins").parentElement.parentElement;
+    parentElem.className = 'jumbotron alert alert-info';
+    var parentElemNext = document.getElementById(_nextCurrentPlayer.name + "PlayerWins").parentElement.parentElement;
+    parentElemNext.className = 'jumbotron alert alert-warning';
 
 
     // we are doing this last, player might WIN in this turn
@@ -120,7 +118,7 @@ function isPlayerWinner() {
     var positions = currentPlayer.positions;
     var winner = false;
 
-    winCombinations.map(function(combo) {
+    winCombinations.map(function (combo) {
 
         var diff = difference(combo, positions);
         if (diff.length === 0) {
@@ -156,7 +154,8 @@ function difference(a1, a2) {
 }
 
 
-function resetGame(){
-  location.reload(true);
+function resetGame() {
+    location.reload(true);
 }
 // });
+
