@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/tiialehtinen/tic-tac-toe/issues"
   },
-  "homepage": "https://github.com/tiialehtinen/tic-tac-toe#readme"
+  "homepage": "https://github.com/tiialehtinen/tic-tac-toe#readme",
+  "devDependencies": {
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "redux": "^3.5.2"
+  }
 }
