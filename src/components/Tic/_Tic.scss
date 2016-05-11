@@ -1,17 +1,19 @@
+@import '../../scss/settings';
 .ttt {
-  width: 100px;
-  background-color: #40a070;
+  background-color: $bg-color;
+  float: left;
   height: 100px;
-  float: left
+  width: 100px
 }
 
 .ttt span {
-  text-align: center;
-  color: #ffffff;
+  color: $font-color;
+  cursor: hand;
   font-size: 80px;
-  margin: 10px;
   left: 17px;
+  margin: 10px;
   position: relative;
+  text-align: center;
 
 }
 
