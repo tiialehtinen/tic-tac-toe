@@ -118,7 +118,7 @@ export default class App extends React.Component {
     render() {
         var Tics = []
 
-        for (var i = 1; i <= 9; i++) {
+        for (var i = 0; i < 9; i++) {
             Tics.push(<Tic
                 key={i}
                 id={i}
@@ -143,7 +143,6 @@ export default class App extends React.Component {
         )
     }
 }
-
 
 ReactDOM.render(
     <App />,
