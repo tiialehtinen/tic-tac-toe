@@ -28,6 +28,8 @@ export default class App extends React.Component {
                     next: false,
                 }
             ],
+            currentPlayer: '',
+            nextPlayer: '',
             winner: null,
             winCombinations: [
                 [0, 1, 2],
@@ -75,26 +77,33 @@ export default class App extends React.Component {
 
         this.setCurrentPlayer(nextPlayer.id)
         this.setNextPlayer()
+        this.forceUpdate()
     }
 
     setCurrentPlayer(index) {
         this.state.players.map(function (_p) {
-            if( _p.current ) {
+            if (_p.current) {
                 _p.current = false
                 _p.next = true
             }
         })
         this.state.players[index].current = true
         this.state.players[index].next = false
+
+        this.state.currentPlayer = this.state.players[index].name
     }
 
     setNextPlayer() {
-        this.state.players.map(function (player) {
+        var nextPlayer = this.state.players.filter(function (player) {
             if (!player.current) {
-                player.next = !player.current
-                player.current = !player.next
+                return player
             }
-        })
+        })[0]
+        nextPlayer.next = !nextPlayer.current
+        nextPlayer.current = !nextPlayer.next
+
+        this.state.nextPlayer = nextPlayer.name
+        this.state.players[nextPlayer.id] = nextPlayer
 
     }
 
@@ -125,8 +134,8 @@ export default class App extends React.Component {
 
                 </div>
                 <div>
-                    <div>Current Player is <strong>{this.getCurrentPlayer().name}</strong></div>
-                    <div>Next Player is <strong>{this.getNextPlayer().name}</strong></div>
+                    <div>Current Player is <strong>{this.state.currentPlayer}</strong></div>
+                    <div>Next Player is <strong>{this.state.nextPlayer}</strong></div>
 
                 </div>
 
