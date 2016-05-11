@@ -10,8 +10,14 @@ export default class Tic extends React.Component {
         }
     }
 
-    setTicPlayer(e) {
+    setTicPlayer() {
+        if (this.props.appLock) {
+            return
+        }
         var state = this.state;
+        if( state.clicked ) {
+            return
+        }
         state = {
             clicked: !state.clicked,
             value: this.props.currentPlayer().name

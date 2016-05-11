@@ -31,6 +31,7 @@ export default class App extends React.Component {
             currentPlayer: '',
             nextPlayer: '',
             winner: null,
+            totalTurns: 0,
             winCombinations: [
                 [0, 1, 2],
                 [3, 4, 5],
@@ -40,7 +41,8 @@ export default class App extends React.Component {
                 [2, 5, 8],
                 [0, 4, 8],
                 [2, 4, 6]
-            ]
+            ],
+            appLock: false
         }
         this.state = state
 
@@ -66,18 +68,66 @@ export default class App extends React.Component {
         return nextPlayer[0]
     }
 
-    handlePropagation(TicId) {
-        var currentPlayer = this.getCurrentPlayer()
-        currentPlayer.turns += 1
-        currentPlayer.positions.push(TicId)
-
-        this.savePlayer(currentPlayer)
+    componentDidUpdate() {
+        if (this.state.appLock) {
+            return
+        }
+        if (this.state.totalTurns >= 5) {
+            if (this.isPlayerWinner()) {
+                var state = this.state
+                state.winner = this.getCurrentPlayer().name
+                state.appLock = true
+                this.setState(state)
+                return
+            }
+        }
 
         var nextPlayer = this.getNextPlayer()
 
         this.setCurrentPlayer(nextPlayer.id)
         this.setNextPlayer()
+    }
+
+    isPlayerWinner() {
+        var {winCombinations} = this.state
+        var {positions} =  this.getCurrentPlayer()
+        var winner = false
+        winCombinations.map(function (combo) {
+
+            var diff = this.difference(combo, positions);
+            if (diff.length === 0) {
+                winner = true
+            }
+
+        }, this)
+
+        return winner
+    }
+
+    difference(a1, a2) {
+        var result = []
+        for (var i = 0; i < a1.length; i++) {
+            if (a2.indexOf(a1[i]) === -1) {
+                result.push(a1[i])
+            }
+        }
+        return result
+    }
+
+    handlePropagation(TicId) {
+        if (this.state.appLock) {
+            return
+        }
+        var currentPlayer = this.getCurrentPlayer()
+        currentPlayer.turns += 1
+        this.state.totalTurns += 1
+
+        currentPlayer.positions.push(TicId)
+
+        this.savePlayer(currentPlayer)
+
         this.forceUpdate()
+        console.log('here' + Date.now())
     }
 
     setCurrentPlayer(index) {
@@ -124,8 +174,9 @@ export default class App extends React.Component {
                 id={i}
                 currentPlayer={this.getCurrentPlayer.bind(this)}
                 onClick={this.handlePropagation.bind(this)}
+                appLock={this.state.appLock}
 
-            />)
+        />)
         }
         return (
             <div className="main">
@@ -136,7 +187,7 @@ export default class App extends React.Component {
                 <div>
                     <div>Current Player is <strong>{this.state.currentPlayer}</strong></div>
                     <div>Next Player is <strong>{this.state.nextPlayer}</strong></div>
-
+                    <div>Winner is <h1>{this.state.winner}</h1></div>
                 </div>
 
             </div>
