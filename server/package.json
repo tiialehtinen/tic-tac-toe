@@ -1,0 +1,17 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "",
+    "start": "pm2 start server.js -i 0 --name \"parse-server\" ",
+    "prestart": "npm install"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "parse-server": "^2.2.9"
+  }
+}
