@@ -15,7 +15,7 @@ npm install
 npm start
 ```
 
-Application will be available on http://localhost:8080/app/
+Application will be available on [http://localhost:8080](http://localhost:8080)
 
 
 # Structure
