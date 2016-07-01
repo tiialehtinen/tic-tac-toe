@@ -1,0 +1,20 @@
+@import '../../scss/settings';
+
+.ttt {
+  background-color: $bg-color;
+  float: left;
+  height: 100px;
+  width: 100px
+}
+
+.ttt span {
+  color: $font-color;
+  cursor: hand;
+  font-size: 80px;
+  left: 17px;
+  margin: 10px;
+  position: relative;
+  text-align: center;
+  font-family: "Menlo for Powerline";
+}
+
